@@ -21,11 +21,13 @@ int main() {
 
         if (x == 0 && y == N-1) x++;
 
-        if (x == 0) x = N-1;
-        else x--;
+        else {
+            if (x == 0) x = N-1;
+            else x--;
 
-        if (y == N-1) y = 0;
-        else y++;
+            if (y == N-1) y = 0;
+            else y++;
+        }
 
         if (matrix[x][y] != 0) {
             x += 2;
@@ -35,7 +37,7 @@ int main() {
 
     for (int i = 0; i < N; i++){
         for (int j = 0; j < N; j++){
-        cout << setw(4) << matrix[i][j] << " ";
+            cout << setw(4) << matrix[i][j] << " ";
         }
         cout << endl;
     }
