@@ -1,7 +1,6 @@
 #include <iostream>
 #include <stdlib.h>
 #include <ctime>
-#include <vector>
 #include <unistd.h>
 
 using namespace std;
@@ -10,7 +9,6 @@ void detectCell(int** Map, int m, int n, int i, int j);
 void detectMap(int** Map, int m, int n);
 void randomBomb(int** Map, int m, int n, int K);
 void printMap(int** Map, int m, int n, char** Status);
-void print(int line);
 
 int main() {
     int m, n, K;
@@ -30,12 +28,13 @@ int main() {
     randomBomb(Map, m, n, K);
     detectMap(Map, m, n);
     printMap(Map, m, n, Status);
-    print(5);
 
-    bool gameContinue = true;
+    bool gameContinue = true; int t = 0;
     while (gameContinue) {
         int x, y;
-        cin >> x >> y;
+        cin >> x >> y; t++;
+        gameContinue = (t != m * n - K);
+        system("cls");
         Status[x][y] = 'O';
 
         if (Map[x][y] == -1){
@@ -49,7 +48,7 @@ int main() {
         }
 
         printMap(Map, m, n, Status);
-        print(5);
+
     }
 
     delete [] Map;
@@ -107,9 +106,3 @@ void detectMap(int** Map, int m, int n) {
     }
 }
 
-void print(int line){
-    if (line > 0) {
-        cout << endl;
-        print(line-1);
-    }
-}
