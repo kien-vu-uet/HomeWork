@@ -6,8 +6,8 @@
 
 using namespace std;
 
-void detechCell(int** Map, int m, int n, int i, int j);
-void detechMap(int** Map, int m, int n);
+void detectCell(int** Map, int m, int n, int i, int j);
+void detectMap(int** Map, int m, int n);
 void randomBomb(int** Map, int m, int n, int K);
 void printMap(int** Map, int m, int n, char** Status);
 void print(int line);
@@ -28,7 +28,7 @@ int main() {
     }
 
     randomBomb(Map, m, n, K);
-    detechMap(Map, m, n);
+    detectMap(Map, m, n);
     printMap(Map, m, n, Status);
     print(5);
 
@@ -88,7 +88,7 @@ void printMap(int** Map, int m, int n, char** Status) {
     }
 }
 
-void detechCell(int** Map, int m, int n, int i, int j){
+void detectCell(int** Map, int m, int n, int i, int j){
     for (int a = i - 1; a <= i+1; a++) {
         if (a < 0 || a >= m) continue;
         for (int b = j - 1; b <= j+1; b++) {
@@ -99,10 +99,10 @@ void detechCell(int** Map, int m, int n, int i, int j){
     }
 }
 
-void detechMap(int** Map, int m, int n) {
+void detectMap(int** Map, int m, int n) {
     for (int i = 0; i < m; i++) {
         for (int j = 0; j < n; j++) {
-            if (Map[i][j] == -1) detechCell(Map, m , n, i, j);
+            if (Map[i][j] == -1) detectCell(Map, m , n, i, j);
         }
     }
 }
