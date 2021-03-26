@@ -28,7 +28,8 @@ int main() {
 		map[0][i] = 1;
 		arrange(map, 1);
 		tickThreatenedCells(map, 0, i, 1, 0);
-	} cout << d << " ways to arrange " << N << " Queens !" << endl;
+	} 
+	cout << d << " ways to arrange " << N << " Queens !" << endl;
 
 	delete[]map;
 	//outf.close();
